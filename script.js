@@ -140,16 +140,20 @@ videoWrappers.forEach(wrapper => {
                 document.querySelectorAll('video').forEach(v => {
                     if (v !== video) {
                         v.pause();
+                        v.muted = true;
                         v.currentTime = 0;
                         v.closest('.video-wrapper, .reel-wrapper').classList.remove('playing');
                     }
                 });
 
-                // Play this video
+                // Play this video with sound
+                video.muted = false;
+                video.volume = 1;
                 video.play();
                 wrapper.classList.add('playing');
             } else {
                 video.pause();
+                video.muted = true;
                 wrapper.classList.remove('playing');
             }
         });
@@ -157,6 +161,7 @@ videoWrappers.forEach(wrapper => {
         // Reset play icon when video ends
         video.addEventListener('ended', () => {
             wrapper.classList.remove('playing');
+            video.muted = true;
             video.currentTime = 0;
         });
     }
@@ -193,6 +198,99 @@ videoWrappers.forEach(wrapper => {
         });
     }
 });
+
+// ===================================
+// IMAGE LIGHTBOX FUNCTIONALITY
+// ===================================
+
+// Create lightbox HTML structure
+const createLightbox = () => {
+    const lightbox = document.createElement('div');
+    lightbox.className = 'lightbox';
+    lightbox.innerHTML = `
+        <div class="lightbox-overlay"></div>
+        <div class="lightbox-content">
+            <button class="lightbox-close">&times;</button>
+            <button class="lightbox-prev">‹</button>
+            <button class="lightbox-next">›</button>
+            <img src="" alt="" class="lightbox-image">
+        </div>
+    `;
+    document.body.appendChild(lightbox);
+    return lightbox;
+};
+
+const lightbox = createLightbox();
+const lightboxImage = lightbox.querySelector('.lightbox-image');
+const lightboxClose = lightbox.querySelector('.lightbox-close');
+const lightboxPrev = lightbox.querySelector('.lightbox-prev');
+const lightboxNext = lightbox.querySelector('.lightbox-next');
+const lightboxOverlay = lightbox.querySelector('.lightbox-overlay');
+
+let currentImageIndex = 0;
+let allImages = [];
+
+// Get all clickable images (not video posters)
+const initializeLightbox = () => {
+    const mediaItems = document.querySelectorAll('.media-item');
+    allImages = [];
+
+    mediaItems.forEach((item, index) => {
+        const img = item.querySelector('.media-wrapper img');
+        const video = item.querySelector('.media-wrapper video');
+
+        // Only add images, not videos
+        if (img && !video) {
+            allImages.push(img);
+
+            item.style.cursor = 'pointer';
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                currentImageIndex = allImages.indexOf(img);
+                openLightbox(img.src);
+            });
+        }
+    });
+};
+
+const openLightbox = (src) => {
+    lightboxImage.src = src;
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+};
+
+const closeLightbox = () => {
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+};
+
+const showNextImage = () => {
+    currentImageIndex = (currentImageIndex + 1) % allImages.length;
+    lightboxImage.src = allImages[currentImageIndex].src;
+};
+
+const showPrevImage = () => {
+    currentImageIndex = (currentImageIndex - 1 + allImages.length) % allImages.length;
+    lightboxImage.src = allImages[currentImageIndex].src;
+};
+
+// Event listeners for lightbox
+lightboxClose.addEventListener('click', closeLightbox);
+lightboxOverlay.addEventListener('click', closeLightbox);
+lightboxNext.addEventListener('click', showNextImage);
+lightboxPrev.addEventListener('click', showPrevImage);
+
+// Keyboard navigation
+document.addEventListener('keydown', (e) => {
+    if (lightbox.classList.contains('active')) {
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowRight') showNextImage();
+        if (e.key === 'ArrowLeft') showPrevImage();
+    }
+});
+
+// Initialize lightbox
+initializeLightbox();
 
 // ===================================
 // NAVIGATION SCROLL EFFECT
