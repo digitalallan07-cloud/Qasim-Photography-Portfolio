@@ -171,11 +171,11 @@ a:hover {
    =================================== */
 
 .statement {
-    min-height: 80vh;
+    min-height: 70vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: var(--spacing-xl) 2rem;
+    padding: var(--spacing-lg) 2rem;
     background-color: var(--color-accent);
 }
 
@@ -194,102 +194,228 @@ a:hover {
 }
 
 /* ===================================
-   FEATURED WORK SECTION
+   INDUSTRY FILTER SECTION
    =================================== */
 
-.featured-work {
-    padding: var(--spacing-lg) 0;
+.industry-filter {
+    padding: var(--spacing-lg) 4rem;
     background-color: var(--color-light);
+    text-align: center;
 }
 
-.featured-item {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-    padding: var(--spacing-md) 4rem;
-    min-height: 90vh;
+.filter-header {
+    margin-bottom: var(--spacing-md);
 }
 
-.featured-item:nth-child(even) {
-    grid-template-columns: 1fr 1fr;
+.filter-header h2 {
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 300;
+    font-family: var(--font-heading);
+    margin-bottom: 1rem;
+}
+
+.filter-header p {
+    font-size: clamp(1rem, 1.5vw, 1.125rem);
+    color: var(--color-gray);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.filter-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: var(--spacing-md);
+}
+
+.filter-btn {
+    padding: 0.75rem 2rem;
+    background: transparent;
+    border: 1px solid var(--color-dark);
+    color: var(--color-dark);
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: var(--font-body);
+}
+
+.filter-btn:hover {
     background-color: var(--color-dark);
     color: var(--color-light);
 }
 
-.featured-item:nth-child(even) .featured-image {
-    order: 2;
+.filter-btn.active {
+    background-color: var(--color-dark);
+    color: var(--color-light);
 }
 
-.featured-item:nth-child(even) .featured-info {
-    order: 1;
+/* ===================================
+   INDUSTRY SECTIONS
+   =================================== */
+
+.industry-section {
+    padding: var(--spacing-lg) 4rem;
+    background-color: var(--color-light);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    transition: opacity 0.5s ease, max-height 0.5s ease;
 }
 
-.featured-image {
+.industry-section.hidden {
+    display: none;
+}
+
+.industry-intro {
+    margin-bottom: var(--spacing-md);
+    max-width: 800px;
+}
+
+.industry-number {
+    display: block;
+    font-size: 0.85rem;
+    letter-spacing: 0.2em;
+    color: var(--color-gray);
+    margin-bottom: 1rem;
+}
+
+.industry-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 300;
+    font-family: var(--font-heading);
+    margin-bottom: 1rem;
+}
+
+.industry-description {
+    font-size: clamp(1rem, 1.5vw, 1.125rem);
+    color: var(--color-gray);
+    line-height: 1.6;
+}
+
+.industry-category {
+    margin-bottom: var(--spacing-lg);
+}
+
+.category-title {
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    font-weight: 400;
+    margin-bottom: var(--spacing-md);
+    letter-spacing: 0.05em;
+}
+
+/* ===================================
+   MEDIA GRID (PHOTOS & VIDEOS)
+   =================================== */
+
+.media-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.media-item {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.media-wrapper {
     position: relative;
     overflow: hidden;
-    aspect-ratio: 16/10;
+    aspect-ratio: 4/5;
+    background-color: var(--color-accent);
 }
 
-.featured-image img {
+.media-wrapper img,
+.media-wrapper video {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.featured-item:hover .featured-image img {
-    transform: scale(1.05);
+.media-item:hover .media-wrapper img,
+.media-item:hover .media-wrapper video {
+    transform: scale(1.08);
 }
 
-.featured-overlay {
+.media-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, transparent 60%, rgba(0, 0, 0, 0.3));
+    background: linear-gradient(to bottom, transparent 60%, rgba(0, 0, 0, 0.7));
     opacity: 0;
-    transition: opacity 0.6s ease;
+    transition: opacity 0.4s ease;
+    display: flex;
+    align-items: flex-end;
+    padding: 1.5rem;
 }
 
-.featured-item:hover .featured-overlay {
+.media-item:hover .media-overlay {
     opacity: 1;
 }
 
-.featured-info {
-    padding: 2rem;
-}
-
-.featured-number {
-    display: block;
-    font-size: clamp(0.8rem, 1vw, 0.9rem);
-    letter-spacing: 0.2em;
-    opacity: 0.5;
-    margin-bottom: 2rem;
-}
-
-.featured-info h3 {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 300;
-    line-height: 1.1;
-    margin-bottom: 1rem;
-    font-family: var(--font-heading);
-}
-
-.featured-info p {
-    font-size: clamp(1rem, 1.5vw, 1.125rem);
-    opacity: 0.7;
-    letter-spacing: 0.05em;
+.media-label {
+    color: var(--color-light);
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 500;
 }
 
 /* ===================================
-   PORTFOLIO GRID SECTION
+   VIDEO SPECIFIC STYLES
    =================================== */
 
-.portfolio-grid {
-    padding: var(--spacing-xl) 4rem;
+.video-wrapper {
+    position: relative;
+}
+
+.video-play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--color-dark);
+    transition: all 0.3s ease;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.media-item:hover .video-play-icon {
+    transform: translate(-50%, -50%) scale(1.1);
     background-color: var(--color-light);
 }
 
+.video-wrapper video {
+    display: block;
+}
+
+.video-wrapper.playing .video-play-icon {
+    opacity: 0;
+}
+
+/* ===================================
+   SOCIAL MEDIA REELS SECTION
+   =================================== */
+
+.reels-section {
+    padding: var(--spacing-xl) 4rem;
+    background-color: var(--color-dark);
+    color: var(--color-light);
+}
+
 .section-header {
+    text-align: center;
     margin-bottom: var(--spacing-lg);
 }
 
@@ -297,54 +423,69 @@ a:hover {
     font-size: clamp(3rem, 6vw, 5rem);
     font-weight: 300;
     font-family: var(--font-heading);
+    margin-bottom: 1rem;
 }
 
-.grid {
+.section-header p {
+    font-size: clamp(1rem, 1.5vw, 1.125rem);
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.reels-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
-.grid-item {
+.reel-item {
     position: relative;
     cursor: pointer;
-    overflow: hidden;
 }
 
-.grid-image {
+.reel-wrapper {
     position: relative;
     overflow: hidden;
-    aspect-ratio: 4/5;
+    aspect-ratio: 9/16;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
 }
 
-.grid-image img {
+.reel-wrapper video {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    filter: grayscale(20%);
+    transition: transform 0.6s ease;
 }
 
-.grid-item:hover .grid-image img {
-    transform: scale(1.08);
-    filter: grayscale(0%);
+.reel-item:hover .reel-wrapper video {
+    transform: scale(1.05);
 }
 
-.grid-info {
-    padding: 1.5rem 0;
+.reel-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 60%, rgba(0, 0, 0, 0.8));
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    display: flex;
+    align-items: flex-end;
+    padding: 1.5rem;
 }
 
-.grid-info h4 {
-    font-size: clamp(1.125rem, 1.5vw, 1.25rem);
+.reel-item:hover .reel-overlay {
+    opacity: 1;
+}
+
+.reel-label {
+    color: var(--color-light);
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
     font-weight: 500;
-    margin-bottom: 0.5rem;
-    letter-spacing: 0.02em;
-}
-
-.grid-info p {
-    font-size: 0.9rem;
-    color: var(--color-gray);
-    letter-spacing: 0.05em;
 }
 
 /* ===================================
@@ -382,6 +523,7 @@ a:hover {
 
 .about-image {
     overflow: hidden;
+    border-radius: 4px;
 }
 
 .about-image img {
@@ -389,11 +531,12 @@ a:hover {
     height: 100%;
     object-fit: cover;
     filter: grayscale(100%);
-    transition: filter 0.6s ease;
+    transition: filter 0.6s ease, transform 0.6s ease;
 }
 
 .about-image:hover img {
     filter: grayscale(0%);
+    transform: scale(1.05);
 }
 
 .expertise {
@@ -579,23 +722,13 @@ a:hover {
         gap: 2rem;
     }
 
-    .featured-item,
-    .portfolio-grid,
+    .industry-filter,
+    .industry-section,
+    .reels-section,
     .about,
     .contact {
         padding-left: 2rem;
         padding-right: 2rem;
-    }
-
-    .featured-item {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        min-height: auto;
-    }
-
-    .featured-item:nth-child(even) .featured-image,
-    .featured-item:nth-child(even) .featured-info {
-        order: 0;
     }
 
     .about-content {
@@ -603,9 +736,14 @@ a:hover {
         gap: 3rem;
     }
 
-    .grid {
-        grid-template-columns: repeat(2, 1fr);
+    .media-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 1.5rem;
+    }
+
+    .reels-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1rem;
     }
 
     .expertise {
@@ -641,17 +779,32 @@ a:hover {
         font-size: clamp(3rem, 10vw, 6rem);
     }
 
-    .featured-item,
-    .portfolio-grid,
+    .industry-filter,
+    .industry-section,
+    .reels-section,
     .about,
     .contact {
         padding-left: 1.5rem;
         padding-right: 1.5rem;
     }
 
-    .grid {
+    .filter-buttons {
+        gap: 0.75rem;
+    }
+
+    .filter-btn {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.8rem;
+    }
+
+    .media-grid {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 1.5rem;
+    }
+
+    .reels-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
     }
 
     .contact-social {
@@ -661,6 +814,18 @@ a:hover {
 
     .scroll-indicator {
         bottom: 2rem;
+    }
+
+    .video-play-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .reels-grid {
+        grid-template-columns: 1fr;
     }
 }
 

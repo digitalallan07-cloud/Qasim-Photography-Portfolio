@@ -11,7 +11,8 @@
     <nav class="nav">
         <div class="nav-logo">Qasim Saidi</div>
         <div class="nav-links">
-            <a href="#work">Work</a>
+            <a href="#industries">Work</a>
+            <a href="#reels">Reels</a>
             <a href="#about">About</a>
             <a href="#contact">Contact</a>
         </div>
@@ -42,109 +43,299 @@
         </div>
     </section>
 
-    <!-- Featured Work Section -->
-    <section class="featured-work">
-        <div class="featured-item reveal-section">
-            <div class="featured-image">
-                <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=1600&h=900&fit=crop&q=80" alt="Lifestyle Editorial Photography" loading="lazy">
-                <div class="featured-overlay"></div>
-            </div>
-            <div class="featured-info">
-                <span class="featured-number">01</span>
-                <h3>Lifestyle Editorial</h3>
-                <p>Editorial Photography, Creative Direction</p>
+    <!-- Industry Filter Section -->
+    <section id="industries" class="industry-filter">
+        <div class="filter-header reveal-text">
+            <h2>Industries</h2>
+            <p>Specialized photography & videography across fashion, jewelry, and product still life</p>
+        </div>
+        <div class="filter-buttons reveal-text">
+            <button class="filter-btn active" data-filter="all">All Work</button>
+            <button class="filter-btn" data-filter="fashion">Fashion</button>
+            <button class="filter-btn" data-filter="jewelry">Jewelry</button>
+            <button class="filter-btn" data-filter="stilllife">Still Life</button>
+        </div>
+    </section>
+
+    <!-- Fashion Section -->
+    <section class="industry-section fashion-section" data-industry="fashion">
+        <div class="industry-intro reveal-text">
+            <span class="industry-number">01</span>
+            <h3 class="industry-title">Fashion</h3>
+            <p class="industry-description">Editorial campaigns and e-commerce photography that captures style and drives conversions</p>
+        </div>
+
+        <!-- Fashion Photography -->
+        <div class="industry-category">
+            <h4 class="category-title reveal-text">Photography</h4>
+            <div class="media-grid">
+                <div class="media-item reveal-grid-item" data-type="image">
+                    <div class="media-wrapper">
+                        <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800&h=1000&fit=crop&q=80" alt="Fashion Photography 1" loading="lazy">
+                        <div class="media-overlay">
+                            <span class="media-label">Photography</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="media-item reveal-grid-item" data-type="image">
+                    <div class="media-wrapper">
+                        <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800&h=1000&fit=crop&q=80" alt="Fashion Photography 2" loading="lazy">
+                        <div class="media-overlay">
+                            <span class="media-label">Photography</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="media-item reveal-grid-item" data-type="image">
+                    <div class="media-wrapper">
+                        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=800&h=1000&fit=crop&q=80" alt="Fashion Photography 3" loading="lazy">
+                        <div class="media-overlay">
+                            <span class="media-label">Photography</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="media-item reveal-grid-item" data-type="image">
+                    <div class="media-wrapper">
+                        <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=800&h=1000&fit=crop&q=80" alt="Fashion Photography 4" loading="lazy">
+                        <div class="media-overlay">
+                            <span class="media-label">Photography</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="featured-item reveal-section">
-            <div class="featured-image">
-                <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=1600&h=900&fit=crop&q=80" alt="Jewelry Model Photography" loading="lazy">
-                <div class="featured-overlay"></div>
-            </div>
-            <div class="featured-info">
-                <span class="featured-number">02</span>
-                <h3>Jewelry Campaign</h3>
-                <p>Product & Model Photography</p>
-            </div>
-        </div>
-
-        <div class="featured-item reveal-section">
-            <div class="featured-image">
-                <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=1600&h=900&fit=crop&q=80" alt="Fashion Model Photography" loading="lazy">
-                <div class="featured-overlay"></div>
-            </div>
-            <div class="featured-info">
-                <span class="featured-number">03</span>
-                <h3>Fashion Editorial</h3>
-                <p>Model Photography, Art Direction</p>
+        <!-- Fashion Videography -->
+        <div class="industry-category">
+            <h4 class="category-title reveal-text">Videography</h4>
+            <div class="media-grid video-grid">
+                <div class="media-item reveal-grid-item" data-type="video">
+                    <div class="media-wrapper video-wrapper">
+                        <video poster="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=800&h=1000&fit=crop&q=80" loop muted playsinline>
+                            <source src="placeholder-video.mp4" type="video/mp4">
+                        </video>
+                        <div class="video-play-icon">▶</div>
+                        <div class="media-overlay">
+                            <span class="media-label">Videography</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="media-item reveal-grid-item" data-type="video">
+                    <div class="media-wrapper video-wrapper">
+                        <video poster="https://images.unsplash.com/photo-1558769132-cb1aea8f9f0c?w=800&h=1000&fit=crop&q=80" loop muted playsinline>
+                            <source src="placeholder-video.mp4" type="video/mp4">
+                        </video>
+                        <div class="video-play-icon">▶</div>
+                        <div class="media-overlay">
+                            <span class="media-label">Videography</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Portfolio Grid Section -->
-    <section id="work" class="portfolio-grid">
-        <div class="section-header reveal-text">
-            <h2>Selected Work</h2>
+    <!-- Jewelry Section -->
+    <section class="industry-section jewelry-section" data-industry="jewelry">
+        <div class="industry-intro reveal-text">
+            <span class="industry-number">02</span>
+            <h3 class="industry-title">Jewelry</h3>
+            <p class="industry-description">Luxury jewelry photography highlighting craftsmanship and detail for premium brands</p>
         </div>
 
-        <div class="grid">
-            <div class="grid-item reveal-grid-item">
-                <div class="grid-image">
-                    <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=800&h=1000&fit=crop&q=80" alt="Jewelry Product Photography" loading="lazy">
+        <!-- Jewelry Photography -->
+        <div class="industry-category">
+            <h4 class="category-title reveal-text">Photography</h4>
+            <div class="media-grid">
+                <div class="media-item reveal-grid-item" data-type="image">
+                    <div class="media-wrapper">
+                        <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=800&h=1000&fit=crop&q=80" alt="Jewelry Photography 1" loading="lazy">
+                        <div class="media-overlay">
+                            <span class="media-label">Photography</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="grid-info">
-                    <h4>Luxury Jewelry</h4>
-                    <p>Product Photography</p>
+                <div class="media-item reveal-grid-item" data-type="image">
+                    <div class="media-wrapper">
+                        <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&h=1000&fit=crop&q=80" alt="Jewelry Photography 2" loading="lazy">
+                        <div class="media-overlay">
+                            <span class="media-label">Photography</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="media-item reveal-grid-item" data-type="image">
+                    <div class="media-wrapper">
+                        <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=800&h=1000&fit=crop&q=80" alt="Jewelry Photography 3" loading="lazy">
+                        <div class="media-overlay">
+                            <span class="media-label">Photography</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="media-item reveal-grid-item" data-type="image">
+                    <div class="media-wrapper">
+                        <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=800&h=1000&fit=crop&q=80" alt="Jewelry Photography 4" loading="lazy">
+                        <div class="media-overlay">
+                            <span class="media-label">Photography</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Jewelry Videography -->
+        <div class="industry-category">
+            <h4 class="category-title reveal-text">Videography</h4>
+            <div class="media-grid video-grid">
+                <div class="media-item reveal-grid-item" data-type="video">
+                    <div class="media-wrapper video-wrapper">
+                        <video poster="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=800&h=1000&fit=crop&q=80" loop muted playsinline>
+                            <source src="placeholder-video.mp4" type="video/mp4">
+                        </video>
+                        <div class="video-play-icon">▶</div>
+                        <div class="media-overlay">
+                            <span class="media-label">Videography</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="media-item reveal-grid-item" data-type="video">
+                    <div class="media-wrapper video-wrapper">
+                        <video poster="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=800&h=1000&fit=crop&q=80" loop muted playsinline>
+                            <source src="placeholder-video.mp4" type="video/mp4">
+                        </video>
+                        <div class="video-play-icon">▶</div>
+                        <div class="media-overlay">
+                            <span class="media-label">Videography</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Still Life Section -->
+    <section class="industry-section stilllife-section" data-industry="stilllife">
+        <div class="industry-intro reveal-text">
+            <span class="industry-number">03</span>
+            <h3 class="industry-title">Product Still Life</h3>
+            <p class="industry-description">Clean, conversion-optimized product photography for e-commerce excellence</p>
+        </div>
+
+        <!-- Still Life Photography -->
+        <div class="industry-category">
+            <h4 class="category-title reveal-text">Photography</h4>
+            <div class="media-grid">
+                <div class="media-item reveal-grid-item" data-type="image">
+                    <div class="media-wrapper">
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&h=1000&fit=crop&q=80" alt="Product Photography 1" loading="lazy">
+                        <div class="media-overlay">
+                            <span class="media-label">Photography</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="media-item reveal-grid-item" data-type="image">
+                    <div class="media-wrapper">
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&h=1000&fit=crop&q=80" alt="Product Photography 2" loading="lazy">
+                        <div class="media-overlay">
+                            <span class="media-label">Photography</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="media-item reveal-grid-item" data-type="image">
+                    <div class="media-wrapper">
+                        <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=800&h=1000&fit=crop&q=80" alt="Product Photography 3" loading="lazy">
+                        <div class="media-overlay">
+                            <span class="media-label">Photography</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="media-item reveal-grid-item" data-type="image">
+                    <div class="media-wrapper">
+                        <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=800&h=1000&fit=crop&q=80" alt="Product Photography 4" loading="lazy">
+                        <div class="media-overlay">
+                            <span class="media-label">Photography</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media Reels Section -->
+    <section id="reels" class="reels-section">
+        <div class="section-header reveal-text">
+            <h2>Social Media Reels</h2>
+            <p>Scroll-stopping vertical content optimized for Instagram, TikTok, and social platforms</p>
+        </div>
+
+        <div class="reels-grid">
+            <div class="reel-item reveal-grid-item">
+                <div class="reel-wrapper">
+                    <video poster="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=600&h=1067&fit=crop&q=80" loop muted playsinline>
+                        <source src="placeholder-reel.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-play-icon">▶</div>
+                    <div class="reel-overlay">
+                        <span class="reel-label">Fashion Reel</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="grid-item reveal-grid-item">
-                <div class="grid-image">
-                    <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800&h=1000&fit=crop&q=80" alt="Fashion Model Shoot" loading="lazy">
-                </div>
-                <div class="grid-info">
-                    <h4>Editorial Look</h4>
-                    <p>Model Photography</p>
-                </div>
-            </div>
-
-            <div class="grid-item reveal-grid-item">
-                <div class="grid-image">
-                    <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800&h=1000&fit=crop&q=80" alt="Lifestyle Photography" loading="lazy">
-                </div>
-                <div class="grid-info">
-                    <h4>Lifestyle Campaign</h4>
-                    <p>Editorial Photography</p>
+            <div class="reel-item reveal-grid-item">
+                <div class="reel-wrapper">
+                    <video poster="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&h=1067&fit=crop&q=80" loop muted playsinline>
+                        <source src="placeholder-reel.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-play-icon">▶</div>
+                    <div class="reel-overlay">
+                        <span class="reel-label">Jewelry Reel</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="grid-item reveal-grid-item">
-                <div class="grid-image">
-                    <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=800&h=1000&fit=crop&q=80" alt="Jewelry E-commerce Photography" loading="lazy">
-                </div>
-                <div class="grid-info">
-                    <h4>E-commerce Product</h4>
-                    <p>Product Photography</p>
-                </div>
-            </div>
-
-            <div class="grid-item reveal-grid-item">
-                <div class="grid-image">
-                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=800&h=1000&fit=crop&q=80" alt="Fashion Lifestyle Photography" loading="lazy">
-                </div>
-                <div class="grid-info">
-                    <h4>Fashion Lifestyle</h4>
-                    <p>Lifestyle Photography</p>
+            <div class="reel-item reveal-grid-item">
+                <div class="reel-wrapper">
+                    <video poster="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&h=1067&fit=crop&q=80" loop muted playsinline>
+                        <source src="placeholder-reel.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-play-icon">▶</div>
+                    <div class="reel-overlay">
+                        <span class="reel-label">Fashion Reel</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="grid-item reveal-grid-item">
-                <div class="grid-image">
-                    <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=800&h=1000&fit=crop&q=80" alt="Jewelry Collection" loading="lazy">
+            <div class="reel-item reveal-grid-item">
+                <div class="reel-wrapper">
+                    <video poster="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&h=1067&fit=crop&q=80" loop muted playsinline>
+                        <source src="placeholder-reel.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-play-icon">▶</div>
+                    <div class="reel-overlay">
+                        <span class="reel-label">Lifestyle Reel</span>
+                    </div>
                 </div>
-                <div class="grid-info">
-                    <h4>Jewelry Collection</h4>
-                    <p>Product & Model Photography</p>
+            </div>
+
+            <div class="reel-item reveal-grid-item">
+                <div class="reel-wrapper">
+                    <video poster="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&h=1067&fit=crop&q=80" loop muted playsinline>
+                        <source src="placeholder-reel.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-play-icon">▶</div>
+                    <div class="reel-overlay">
+                        <span class="reel-label">Jewelry Reel</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reel-item reveal-grid-item">
+                <div class="reel-wrapper">
+                    <video poster="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=600&h=1067&fit=crop&q=80" loop muted playsinline>
+                        <source src="placeholder-reel.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-play-icon">▶</div>
+                    <div class="reel-overlay">
+                        <span class="reel-label">Fashion Reel</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -173,14 +364,16 @@
                     <li>Lifestyle & Editorial Campaigns</li>
                     <li>E-commerce Visual Optimization</li>
                     <li>Brand Photography Packages</li>
+                    <li>Social Media Content Creation</li>
                 </ul>
             </div>
             <div class="expertise-column">
                 <h3>Industries</h3>
                 <ul>
                     <li>Fashion & Apparel</li>
+                    <li>Luxury Jewelry</li>
+                    <li>Product Still Life</li>
                     <li>Beauty & Cosmetics</li>
-                    <li>Lifestyle Brands</li>
                     <li>DTC & E-commerce</li>
                 </ul>
             </div>
@@ -191,6 +384,7 @@
                     <li>10+ Years Experience</li>
                     <li>Premium Product Photography</li>
                     <li>Performance-Driven Approach</li>
+                    <li>Social Media Optimization</li>
                 </ul>
             </div>
         </div>
