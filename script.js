@@ -128,34 +128,64 @@ gridItems.forEach(item => {
 // Handle video click to play/pause
 const videoWrappers = document.querySelectorAll('.video-wrapper, .reel-wrapper');
 
+function handleVideoToggle(wrapper, video) {
+    if (video.paused) {
+        // Pause all other videos
+        document.querySelectorAll('video').forEach(v => {
+            if (v !== video) {
+                v.pause();
+                v.muted = true;
+                v.currentTime = 0;
+                const w = v.closest('.video-wrapper, .reel-wrapper');
+                if (w) w.classList.remove('playing');
+            }
+        });
+
+        // On mobile, start muted first then unmute after play succeeds
+        video.muted = true;
+        const playPromise = video.play();
+        if (playPromise !== undefined) {
+            playPromise.then(() => {
+                video.muted = false;
+                video.volume = 1;
+                wrapper.classList.add('playing');
+            }).catch(() => {
+                // If play fails, try loading the video first
+                video.load();
+                video.muted = true;
+                const retryPromise = video.play();
+                if (retryPromise !== undefined) {
+                    retryPromise.then(() => {
+                        video.muted = false;
+                        video.volume = 1;
+                        wrapper.classList.add('playing');
+                    }).catch(() => {});
+                }
+            });
+        }
+    } else {
+        video.pause();
+        video.muted = true;
+        wrapper.classList.remove('playing');
+    }
+}
+
 videoWrappers.forEach(wrapper => {
     const video = wrapper.querySelector('video');
 
     if (video) {
+        // Handle both click and touch events for mobile/desktop
         wrapper.addEventListener('click', (e) => {
             e.preventDefault();
+            e.stopPropagation();
+            handleVideoToggle(wrapper, video);
+        });
 
-            if (video.paused) {
-                // Pause all other videos
-                document.querySelectorAll('video').forEach(v => {
-                    if (v !== video) {
-                        v.pause();
-                        v.muted = true;
-                        v.currentTime = 0;
-                        v.closest('.video-wrapper, .reel-wrapper').classList.remove('playing');
-                    }
-                });
-
-                // Play this video with sound
-                video.muted = false;
-                video.volume = 1;
-                video.play();
-                wrapper.classList.add('playing');
-            } else {
-                video.pause();
-                video.muted = true;
-                wrapper.classList.remove('playing');
-            }
+        // Ensure touchend also works on mobile (some devices need this)
+        wrapper.addEventListener('touchend', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            handleVideoToggle(wrapper, video);
         });
 
         // Reset play icon when video ends
