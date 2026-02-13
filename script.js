@@ -146,11 +146,22 @@ videoWrappers.forEach(wrapper => {
                     }
                 });
 
-                // Play this video with sound
-                video.muted = false;
-                video.volume = 1;
-                video.play();
-                wrapper.classList.add('playing');
+                // On mobile, start muted first then unmute after play succeeds
+                video.muted = true;
+                video.play().then(() => {
+                    video.muted = false;
+                    video.volume = 1;
+                    wrapper.classList.add('playing');
+                }).catch(() => {
+                    // If muted autoplay also fails, try loading the video first
+                    video.load();
+                    video.muted = true;
+                    video.play().then(() => {
+                        video.muted = false;
+                        video.volume = 1;
+                        wrapper.classList.add('playing');
+                    }).catch(() => {});
+                });
             } else {
                 video.pause();
                 video.muted = true;
