@@ -436,7 +436,8 @@ a:hover {
     display: block;
 }
 
-.video-wrapper.playing .video-play-icon {
+.video-wrapper.playing .video-play-icon,
+.reel-wrapper.playing .video-play-icon {
     opacity: 0;
 }
 
